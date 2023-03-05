@@ -4,14 +4,7 @@ import Upload from '../components/Upload';
 import Progress from '../components/Progress';
 
 const Dashboard = () => {
-    const [progressList, setProgressList] = useState([
-        {
-            id: (Date.now() * Math.random() * 9).toString(),
-            name: 'client1',
-            type: 'Progress note - 80 left',
-            progress: 50,
-        }
-    ])
+    const [progressList, setProgressList] = useState([]);
 
     const onCancel = (id) => {
         setProgressList(prevList => prevList.filter(item => item.id !== id));
@@ -36,7 +29,7 @@ const Dashboard = () => {
             };
           }).filter((item) => item.progress < 100)
         );
-      }, 500);
+      }, 5000);
   
       return () => clearInterval(interval);
     }, []);
