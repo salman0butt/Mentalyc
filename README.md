@@ -5,6 +5,10 @@
 
 In the project directory, you can run:
 
+### `npm install`
+
+it will install dependecies
+
 ### `npm start`
 
 Runs the app in the development mode.\
