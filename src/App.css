@@ -1,38 +1,354 @@
-.App {
+.container {
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.border-bottom {
+  border-bottom: 2px solid #731054;
+}
+
+.dashboard .name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  margin: 12px 0px !important;
+}
+
+.dashboard .first-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard .upload-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: left;
+  margin: 12px 0px !important;
+}
+
+.dashboard .upload-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(295.67deg, #DE0D6F 16.23%, #731054 83.77%);
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 10px 0;
+  color: #fff;
+
+}
+
+/* Modal.css */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  width: 40%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.upload-form-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.upload-form-para {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-close {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-name {
+  /* Grayscale/Gray 100 */
+  padding: 8px 24px 8px 24px;
+  background: #F2F2F2;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  height: 40px;
+  margin: 72px auto;
+}
+
+/* CustomSelectBox.css */
+
+.custom-select-box {
+  position: relative;
+}
+
+.select-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+  font-size: 1em;
+  padding: 8px 24px 8px 24px;
+  cursor: pointer;
+  background: #F2F2F2;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 24px 8px 24px;
+
 }
 
-.App-link {
-  color: #61dafb;
+.select-container:focus-within {
+  outline: none;
+  border-color: #333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.select-container.open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+.arrow.up {
+  border-top: none;
+  border-bottom: 8px solid #999;
+  margin-top: 0.5em;
+  margin-bottom: -0.5em;
+}
+
+.options-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-top: none;
+  border-radius: 0 0 0.25em 0.25em;
+  background-color: #fff;
+  filter: drop-shadow(4px 4px 16px rgba(0, 0, 0, 0.1));
+  border-radius: 0px 0px 16px 16px;
+  -webkit-filter: drop-shadow(4px 4px 16px rgba(0, 0, 0, 0.1));
+  margin-top: 5px;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.option {
+  padding: 8px 24px;
+  font-size: 1em;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.option.selected {
+  border-left: 2px solid #000000a1;
+  border-right: 2px solid #000000a1;
+  border-radius: 3px;
+}
+
+.option:hover {
+  background-color: #f5f5f5;
+}
+
+
+.d-none {
+  display: none;
+}
+
+.finish-upload-btn {
+  padding: 16px;
+  width: 147px;
+  /* height: 40px; */
+  border: none;
+  background: linear-gradient(295.67deg, #DE0D6F 16.23%, #731054 83.77%);
+  border-radius: 8px;
+  color: #fff;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 24px;
+  background-color: #B2B2B2;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #3BC171;
+  transition: width 0.5s;
+}
+
+.table {
+  width: 100%;
+  -webkit-border-vertical-spacing: 5px;
+}
+
+.table tr th {
+  text-align: left;
+}
+
+h2.note-progress-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 116px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 16px;
+  padding: 12px 35px;
+}
+
+span.total-notes-count {
+  background: #DE0D6F;
+  border-radius: 250px;
+  color: #fff;
+  padding: 4px 11px;
+  margin-right: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
+}
+
+.table-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 10px 40px;
+  text-align: left;
+}
+
+.table-row {
+  background: #FFFFFF;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* .table-head-row {
+  display: block;
+  margin: 5px 0;
+} */
+
+.table-row td {
+  padding: 12px 40px;
+  width: 25%;
+}
+
+.td-30 {
+  width: 30% !important;
+}
+
+.td-40 {
+  width: 30% !important;
+}
+
+.trash {
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 767px) {
+  .container {
+    max-width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+  .table-row td {
+    padding: 10px 10px;
+  }
+  .table-heading {
+    padding: 10px 10px;
+  }
+  .mobile-hide {
+    display: none;
+  }
+  .progress-bar {
+    height: 16px;
+  }
+  .modal-content {
+    width: 85%;
   }
 }
